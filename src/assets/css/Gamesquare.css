@@ -1,0 +1,7 @@
+.carousel .thumb{
+    display: none !important;
+}
+
+.carousel .control-dots .dot{
+    background: black !important
+}
