@@ -20,7 +20,7 @@ function AmbassadorsProgram() {
       <div
         style={{ display: "flex", justifyContent: "center", padding: "1% 0" }}
       >
-        <Typography gutterBottom variant="h4" component="div">
+        <Typography gutterBottom variant="h3" component="div" sx={{fontWeigh:'550'}}>
           Ambassadors Program
         </Typography>
       </div>

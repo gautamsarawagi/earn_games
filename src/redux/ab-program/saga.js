@@ -4,7 +4,7 @@ import {takeEvery,put} from "redux-saga/effects";
 function* getAbProgramData (){
     let data = yield fetch(' http://localhost:3500/abassadors-program-data');
     data = yield data.json();
-    console.warn("action is called", data)
+    // console.warn("action is called", data)
     yield put({type: GET_AB_DATA, data})
 }
 
