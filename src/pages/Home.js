@@ -30,13 +30,11 @@ import MailIcon from "@mui/icons-material/Mail";
 
 // importing the data
 import { sidebar_Data } from "../data/sidebar";
+import Footer from "./page_components/Footer";
 // importing logo
-import logo from "../assets/img/logo.png";
-
-import Gamesquare from "../components/Gamesquare"
 
 const drawerWidth = 240;
-const navItems = ['BSC', 'EN', 'Connect Wallet'];
+const navItems = ["BSC", "EN", "Connect Wallet"];
 
 const openedMixin = (theme) => ({
   width: drawerWidth,
@@ -104,7 +102,6 @@ const Drawer = styled(MuiDrawer, {
 }));
 
 function Home(props) {
-
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const handleDrawerToggle = () => {
@@ -135,15 +132,15 @@ function Home(props) {
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-        <AppBar component="nav" position="fixed" open={open}>
+      <AppBar component="nav" position="fixed" open={open}>
         <Toolbar>
-        <IconButton
+          <IconButton
             color="inherit"
             aria-label="open drawer"
             onClick={handleDrawerOpen}
             edge="start"
             sx={{
-              marginRight: {md:5,xs:2},
+              marginRight: { md: 5, xs: 2 },
               ...open,
             }}
           >
@@ -152,18 +149,21 @@ function Home(props) {
           <Typography
             variant="h6"
             component="div"
-            sx={{ flexGrow: 1, display: {sm: 'flex' },minWidth:'128px' }}
+            sx={{ flexGrow: 1, display: { sm: "flex" }, minWidth: "128px" }}
           >
             Earn Games
           </Typography>
           <Box>
-            {navItems.map((item,index) => (
-              <Button key={index} sx={{ color: '#fff' }} style={{padding:'0',margin:'0'}}>
+            {navItems.map((item, index) => (
+              <Button
+                key={index}
+                sx={{ color: "#fff" }}
+                style={{ padding: "0", margin: "0" }}
+              >
                 {item}
               </Button>
             ))}
           </Box>
-                    
         </Toolbar>
       </AppBar>
       <Drawer variant="permanent" open={open}>
@@ -183,44 +183,48 @@ function Home(props) {
         <List>
           {sidebar_Data.map((text, index) => (
             <ListItem key={index} disablePadding sx={{ display: "block" }}>
-              <Link to={`/${text.path}`} style={{textDecoration:'none'}}>
-              <ListItemButton
-                sx={{
-                  minHeight: 50,
-                  justifyContent: open ? "initial" : "center",
-                  px: 2.5,
-                }}
-                onClick={() => setSidebarContnetActive(text.name)}
-              >
-                <ListItemIcon
+              <Link to={`/${text.path}`} style={{ textDecoration: "none" }}>
+                <ListItemButton
                   sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : "auto",
-                    justifyContent: "center",
-                  }}
-                >
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText
-                  primary={text.name}
-                  sx={{
-                    opacity: open ? 1 : 0,
                     minHeight: 50,
-                    display: "flex",
-                    alignItems: "center",
-                    color: activeName == text.name ? "red" : "black",
+                    justifyContent: open ? "initial" : "center",
+                    px: 2.5,
                   }}
-                />
-              </ListItemButton>
+                  onClick={() => setSidebarContnetActive(text.name)}
+                >
+                  <ListItemIcon
+                    sx={{
+                      minWidth: 0,
+                      mr: open ? 3 : "auto",
+                      justifyContent: "center",
+                    }}
+                  >
+                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                  </ListItemIcon>
+                  <ListItemText
+                    primary={text.name}
+                    sx={{
+                      opacity: open ? 1 : 0,
+                      minHeight: 50,
+                      display: "flex",
+                      alignItems: "center",
+                      color: activeName == text.name ? "red" : "black",
+                    }}
+                  />
+                </ListItemButton>
               </Link>
-              
             </ListItem>
           ))}
         </List>
       </Drawer>
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+      <Box component="main" >
+        <div style={{padding: '2%'}}>
         <DrawerHeader />
         {props.children}
+        </div>
+        <div style={{background:'#6cf'}}>
+        <Footer/>
+        </div>
       </Box>
     </Box>
   );

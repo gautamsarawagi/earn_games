@@ -15,7 +15,7 @@ import {
   MysteryBox,
   PlayLearn,
   StackEarn,
-} from "./components";
+} from "./sidebar_components";
 
 function App() {
   return (
